@@ -65,6 +65,8 @@ Before you run the script fill in the required details as follows:
 	"GroupName":"DualAccountGroup"
 }
 ```
+**_Notice:_** In privilege cloud environment the PVWAURL should be PVWA API URL as described here: \
+https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/latest/en/Content/WebServices/ISP-Auth-APIs.htm#APIURLstructure
 
 - Fill in Policy-DualAccount-Creation.json optional properties
 
@@ -101,14 +103,21 @@ or
  ```
  [USER_NAME1]@[IP_ADDRESS]@[SSH_KEY_PATH];[USER_NAME2]@[IP_ADDRESS]@[SSH_KEY_PATH]
  ```
+ 
+For privilege cloud environment run
+```powershell
+DualAccount-Creation.ps1 -PASUserName <string> -PASPassword <string> -AccountList <string> -ConfigFileFullPath <string> -TenantName <string>
+``` 
 
-| Parameter              | Description                                                                                                                                                                  | Required | Acceptable Value | Default Value    |
-| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :------- | :--------------- | :--------------- | 
-| PASUserName            | The Vault/PVWA username.                                                                                                                                                     | **Yes**  | String           | -                |
-| PASPassword            | The Vault/PVWA password.                                                                                                                                                     | **Yes**  | String           | -                |
-| AccountList            | The credentials of the accounts that you want to create.                                                                                                                     | **Yes**  | String           | -                |
-| AuthenticationType     | The type of authentication type for logging on - available values: CyberArk, LDAP or RADIUS.                                                                                 | No       | String           | CyberArk         |              
-| ConfigFileFullPath     | The full path of the configuration file, including file name (Policy-DualAccount-Creation.json). Make sure you have write permissions to this folder.                        | No       | Full file path   | Script location  |
+| Parameter              | Description                                                                                                                                                                  | Required               | Acceptable Value | Default Value    |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :-------               | :--------------- | :--------------- | 
+| PASUserName            | The Vault/PVWA username.                                                                                                                                                     | **Yes**                | String           | -                |
+| PASPassword            | The Vault/PVWA password.                                                                                                                                                     | **Yes**                | String           | -                |
+| AccountList            | The credentials of the accounts that you want to create.                                                                                                                     | **Yes**                | String           | -                |
+| AuthenticationType     | The type of authentication type for logging on - available values: CyberArk, LDAP or RADIUS.                                                                                 | No                     | String           | CyberArk         |              
+| ConfigFileFullPath     | The full path of the configuration file, including file name (Policy-DualAccount-Creation.json). Make sure you have write permissions to this folder.                        | No                     | Full file path   | Script location  |
+| TenantName             | The tenant name of the user                                                                                                                                                  | Only in privilege cloud environment | String           | -                |
+
 
 **Note:**
 You can view Dual Account creation script's progress and failures in the Console and in the Log file (by default named Log-DualAccount.log). 
