@@ -12,6 +12,8 @@ For more information, see [here](https://docs.cyberark.com/Product-Doc/OnlineHel
 
 This script enables fully automatic configuration for the dual account feature.
 
+**_Notice:_** In Privilege Cloud Shared Services environment, only password authentication method is supported.
+
 ## Requirements
 - This scripts can run against Vault and PVWA v12.1 and up.
 - The script is used to create and configure new accounts as dual account. It does not configure existing account as dual account.
@@ -19,7 +21,7 @@ This script enables fully automatic configuration for the dual account feature.
 
 ## Limitations
  
-This script supports only platforms with the following properties:
+This script supports only platforms (in PVWA environment) with the following properties:
    - Address
    - Username
    - Password
@@ -65,7 +67,7 @@ Before you run the script fill in the required details as follows:
 	"GroupName":"DualAccountGroup"
 }
 ```
-**_Notice:_** In privilege cloud environment the PVWAURL should be PVWA API URL as described here: \
+**_Notice:_** In Privilege Cloud Shared Services environment, the PVWAURL should be PVWA API URL as described here: \
 https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/latest/en/Content/WebServices/ISP-Auth-APIs.htm#APIURLstructure
 
 - Fill in Policy-DualAccount-Creation.json optional properties
@@ -104,19 +106,19 @@ or
  [USER_NAME1]@[IP_ADDRESS]@[SSH_KEY_PATH];[USER_NAME2]@[IP_ADDRESS]@[SSH_KEY_PATH]
  ```
  
-For privilege cloud environment run
+For Privilege Cloud Shared Services environment, run:
 ```powershell
 DualAccount-Creation.ps1 -PASUserName <string> -PASPassword <string> -AccountList <string> -ConfigFileFullPath <string> -TenantName <string>
 ``` 
 
-| Parameter              | Description                                                                                                                                                                  | Required               | Acceptable Value | Default Value    |
-| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :-------               | :--------------- | :--------------- | 
-| PASUserName            | The Vault/PVWA username.                                                                                                                                                     | **Yes**                | String           | -                |
-| PASPassword            | The Vault/PVWA password.                                                                                                                                                     | **Yes**                | String           | -                |
-| AccountList            | The credentials of the accounts that you want to create.                                                                                                                     | **Yes**                | String           | -                |
-| AuthenticationType     | The type of authentication type for logging on - available values: CyberArk, LDAP or RADIUS.                                                                                 | No                     | String           | CyberArk         |              
-| ConfigFileFullPath     | The full path of the configuration file, including file name (Policy-DualAccount-Creation.json). Make sure you have write permissions to this folder.                        | No                     | Full file path   | Script location  |
-| TenantName             | The tenant name of the user                                                                                                                                                  | Only in privilege cloud environment | String           | -                |
+| Parameter              | Description                                                                                                                                                                  | Required                                            | Acceptable Value | Default Value    |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :-------                                            | :--------------- | :--------------- | 
+| PASUserName            | The Vault/PVWA username.                                                                                                                                                     | **Yes**                                             | String           | -                |
+| PASPassword            | The Vault/PVWA password.                                                                                                                                                     | **Yes**                                             | String           | -                |
+| AccountList            | The credentials of the accounts that you want to create.                                                                                                                     | **Yes**                                             | String           | -                |
+| AuthenticationType     | The type of authentication type for logging on - available values: CyberArk, LDAP or RADIUS.                                                                                 | No                                                  | String           | CyberArk         |              
+| ConfigFileFullPath     | The full path of the configuration file, including file name (Policy-DualAccount-Creation.json). Make sure you have write permissions to this folder.                        | No                                                  | Full file path   | Script location  |
+| TenantName             | The tenant name of the user                                                                                                                                                  | Only in Privilege Cloud Shared Services environment | String           | -                |
 
 
 **Note:**
