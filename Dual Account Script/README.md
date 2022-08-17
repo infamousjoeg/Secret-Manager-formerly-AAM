@@ -20,14 +20,16 @@ This script enables fully automatic configuration for the dual account feature.
   - Verify the accounts you wish to configure as dual account does not exist in the Vault you are working with.
 
 ## Limitations
- 
-This script supports only platforms (in PVWA environment) with the following properties:
+
+- This script can run on Windows Server 16 and later versions only, due to incompatible cipher suites in earlier versions.
+
+- This script supports only platforms (in PVWA environment) with the following properties:
    - Address
    - Username
    - Password
    - Account
    
-If your platform has other mandatory properties, [configure dual account manually](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-CP/Latest/en/Content/CP%20and%20ASCP/cv_Automatic_dual_account.htm?tocpath=Administration%7CCredential%20Provider%7CAccounts%20and%20Safes%7CManage%20Dual%20Accounts%7C_____1)
+   If your platform has other mandatory properties, [configure dual account manually](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-CP/Latest/en/Content/CP%20and%20ASCP/cv_Automatic_dual_account.htm?tocpath=Administration%7CCredential%20Provider%7CAccounts%20and%20Safes%7CManage%20Dual%20Accounts%7C_____1)
 
 ## Use Dual Account Script
 
